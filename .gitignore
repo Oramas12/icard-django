@@ -1,0 +1,23 @@
+# Archivos de Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.swp
+
+# Archivos de entorno virtual
+venv/
+env/
+.env
+
+# Archivos de base de datos local
+db.sqlite3
+/uploads
+
+# Archivos de logs
+*.log
+logs/
+
+# Archivos de compilación
+build/
+dist/

@@ -29,6 +29,7 @@ from products.api.router import router_product
 from tables.api.router import router_table
 from orders.api.router import router_orders
 from payments.api.router import router_payments
+from django.http import JsonResponse
 
 schema_view = get_schema_view(
     openapi.Info(

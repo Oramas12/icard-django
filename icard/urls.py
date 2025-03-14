@@ -31,11 +31,12 @@ from orders.api.router import router_orders
 from payments.api.router import router_payments
 from django.http import JsonResponse
 
+# Configuración de documentación de la API
 schema_view = get_schema_view(
     openapi.Info(
         title="iCard - ApiDoc",
-        default_version='v1',
-        description="Documentación de la api de iCard",
+        default_version="v1",
+        description="Documentación de la API de iCard",
         terms_of_service="https://www.tincode.es/",
         contact=openapi.Contact(email="xagustin93@gmail.com"),
         license=openapi.License(name="BSD License"),
@@ -48,16 +49,14 @@ def home(request):
     return JsonResponse({"message": "Welcome to iCard Django API!"})
 
 urlpatterns = [
-    path("", home),  # Agregar esta línea para manejar "/"
+    path("", home),  # Página de inicio en "/"
     path("admin/", admin.site.urls),
     path("docs/", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path("redocs/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
-    path("api/", include(router_user.urls)),
-    path("api/", include(router_category.urls)),
-    path("api/", include(router_product.urls)),
-    path("api/", include(router_table.urls)),
-    path("api/", include(router_orders.urls)),
-    path("api/", include(router_payments.urls))
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("api/users/", include("users.api.router")),
+    path("api/categories/", include("categories.api.router")),
+    path("api/products/", include("products.api.router")),
+    path("api/tables/", include("tables.api.router")),
+    path("api/orders/", include("orders.api.router")),
+    path("api/payments/", include("payments.api.router")),
+]

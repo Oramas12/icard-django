@@ -1,5 +1,9 @@
 {
   "build": {
-    "builder": "heroku/buildpacks:20"
+    "base": "python@3.9",
+    "watchPaths": ["requirements.txt", "Procfile", "runtime.txt"]
+  },
+  "deploy": {
+    "startCommand": "gunicorn icard.wsgi:application --bind 0.0.0.0:8000"
   }
 }

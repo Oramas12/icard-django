@@ -1,8 +1,12 @@
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from tables.api.views import TableApiViewSet
+from categories.api.views import CategoryApiViewSet  # Cambia esto según el módulo
 
-router_table = DefaultRouter()
-
-router_table.register(
-    prefix='tables', basename='tables', viewset=TableApiViewSet
+router_category = DefaultRouter()
+router_category.register(
+    prefix='categories', basename='categories', viewset=CategoryApiViewSet
 )
+
+urlpatterns = [
+    path('', include(router_category.urls)),  # Agregar esto
+]

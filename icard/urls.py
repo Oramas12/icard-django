@@ -53,10 +53,13 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("docs/", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path("redocs/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
-    path("api/", include("users.api.router")), 
+    
+    # Aquí incluimos cada router con su prefijo correcto
+    path("api/users/", include("users.api.router")),
     path("api/categories/", include("categories.api.router")),
     path("api/products/", include("products.api.router")),
     path("api/tables/", include("tables.api.router")),
     path("api/orders/", include("orders.api.router")),
     path("api/payments/", include("payments.api.router")),
 ]
+

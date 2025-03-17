@@ -93,9 +93,8 @@ WSGI_APPLICATION = 'icard.wsgi.application'
 
 
 
-
 DATABASES = {
-    "default": dj_database_url.config(default=os.getenv("DATABASE_URL", "sqlite:///db.sqlite3"))
+    "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
 
 

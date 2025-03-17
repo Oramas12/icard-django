@@ -94,7 +94,7 @@ WSGI_APPLICATION = 'icard.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(
-        "postgresql://postgres:Musicatomix$12@db.biqrijcgqufziimjpopq.supabase.co:5432/postgres"
+        "postgresql://postgres:Musicatomix$12@db.fowdcxtjaoqztzndspxw.supabase.co:5432/postgres"
     )
 }
 

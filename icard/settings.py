@@ -30,7 +30,9 @@ SECRET_KEY = 'django-insecure-wsp4v2oll3xdshszu89zf@6m9dn^va#gsin12+h4n*kr2w&-6z
 DEBUG = True
 
 # ALLOWED_HOSTS = ['127.0.0.1', "localhost"]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    os.getenv("ALLOWED_HOSTS", "django-server-production-af4d.up.railway.app")
+]
 
 # Application definition
 

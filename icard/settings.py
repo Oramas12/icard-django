@@ -93,11 +93,11 @@ WSGI_APPLICATION = 'icard.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default="postgresql://postgres.fowdcxtjaoqztzndspxw:Musicatomix$12@aws-0-us-west-1.pooler.supabase.com:6543/postgres"
+    "default": dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        conn_max_age=600,
     )
 }
-
 
 if DATABASES['default'] is None:
     raise ValueError("DATABASE_URL is not set")

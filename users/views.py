@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.urls import path
+from .views import generate_password
 
-# Create your views here.
+urlpatterns = [
+    path('generate-password/', generate_password),  # Nueva ruta para generar la contraseña
+]

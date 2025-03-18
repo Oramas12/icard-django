@@ -94,9 +94,7 @@ WSGI_APPLICATION = 'icard.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=f"postgresql://{os.getenv('PGUSER')}:{os.getenv('PGPASSWORD')}@{os.getenv('PGHOST')}:{os.getenv('PGPORT')}/{os.getenv('PGDATABASE')}"
-    )
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 

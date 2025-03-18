@@ -1,6 +1,6 @@
-from django.urls import path
-from .views import generate_password
+from django.http import JsonResponse
+from django.contrib.auth.hashers import make_password
 
-urlpatterns = [
-    path('generate-password/', generate_password),  # Nueva ruta para generar la contraseña
-]
+def generate_password(request):
+    hashed_password = make_password('Admin123!')
+    return JsonResponse({'hashed_password': hashed_password})

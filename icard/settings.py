@@ -93,15 +93,10 @@ WSGI_APPLICATION = 'icard.wsgi.application'
 
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL"),
-        conn_max_age=600,
+    'default': dj_database_url.config(
+        default=f"postgresql://{os.getenv('PGUSER')}:{os.getenv('PGPASSWORD')}@{os.getenv('PGHOST')}:{os.getenv('PGPORT')}/{os.getenv('PGDATABASE')}"
     )
 }
-
-if DATABASES['default'] is None:
-    raise ValueError("DATABASE_URL is not set")
-
 
 
 # Password validation
